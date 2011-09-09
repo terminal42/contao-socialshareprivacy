@@ -39,6 +39,7 @@ $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_perma_option']    
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_display_name']       = array('Schreibweise des Service in den Optionen', 'default: Facebook');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_referrer_track']     = array('Tracking Parameter', 'Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_language']           = array('Spracheinstellung', 'Sprache in erweiterter Ausführung, also de_DE');
+$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_uri']                = array('Share URL', 'Standardmäßig wird den Services die URL der aktuellen Seite übergeben (document.location.href), ist jedoch eine kanonische URL hinterlegt (<link rel="canonical">), wird diese genommen. Hier kann die URL überschrieben werden.');
 
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_status']              = array('Der User hat Twitter zur Auswahl', '');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_dummy_img']           = array('Pfad zur statischen Grafik', 'default: system/modules/socialshareprivacy/html/images/dummy_twitter.png');
@@ -51,6 +52,7 @@ $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_referrer_track']   
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_tweet_text']          = array('Tweet Text', 'Die Funktion prüft ob es die Meta-Angabe <code>DC.title</code> gibt und verwendet diese. Gibt es außerdem noch <code>DC.creator</code> wird diese etwas abgesetzt (" - ") hinten angehängt. Ist <code>DC.title</code> nicht vorhanden wird das &lt;title&gt;-Tag der Seite verwendet.
 Diese Option kann mit einem eigenen Text (<code>typeof == string</code>) überschrieben werden oder mit einer eigenen Funktion (<code>typeof == function</code>), die den Text generiert.
 Der übergebene Texte wird immer auf 120 Zeichen gekürzt und beim letzten Leerzeichen mit … ersetzt.');
+$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_uri']                 = array('Share URL', 'Standardmäßig wird den Services die URL der aktuellen Seite übergeben (document.location.href), ist jedoch eine kanonische URL hinterlegt (<link rel="canonical">), wird diese genommen. Hier kann die URL überschrieben werden.');
 
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_status']                = array('Der User hat Google+ zur Auswahl', '');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_dummy_img']             = array('Pfad zur statischen Grafik', 'default: system/modules/socialshareprivacy/html/images/dummy_gplus.png');
@@ -61,6 +63,7 @@ $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_perma_option']       
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_display_name']          = array('Schreibweise des Service in den Optionen', 'Google+');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_referrer_track']        = array('Tracking Parameter', 'Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden');
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_language']              = array('Spracheinstellung', '');
+$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_uri']                   = array('Share URL', 'Standardmäßig wird den Services die URL der aktuellen Seite übergeben (document.location.href), ist jedoch eine kanonische URL hinterlegt (<link rel="canonical">), wird diese genommen. Hier kann die URL überschrieben werden.');
 
 $GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_template']                    = array('Template', 'Hier können Sie das Modultemplate auswählen.');
 

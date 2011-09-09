@@ -120,7 +120,7 @@
             if(options.services.facebook.status == 'on'){
                 // Kontrolle ob Facebook App-ID hinterlegt ist, da diese noetig fuer den Empfehlen-Button ist
                 if(options.services.facebook.app_id != '__FB_APP-ID__'){
-                    var fb_enc_uri = encodeURIComponent(uri+options.services.facebook.referrer_track);
+                    var fb_enc_uri = encodeURIComponent((options.services.facebook.uri ? options.services.facebook.uri : uri)+options.services.facebook.referrer_track);
                     var fb_code = '<iframe src="http://www.facebook.com/plugins/like.php?locale='+options.services.facebook.language+'&amp;app_id='+options.services.facebook.app_id+'&amp;href='+fb_enc_uri+'&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=recommend&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowTransparency="true"></iframe>';
                     var fb_dummy_btn = '<img src="'+options.services.facebook.dummy_img+'" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />';
 
@@ -158,8 +158,8 @@
                 }
                 text = abbreviateText(text,'120');
                 
-                var twitter_enc_uri = encodeURIComponent(uri+options.services.twitter.referrer_track);
-                var twitter_count_url = encodeURIComponent(uri);
+                var twitter_enc_uri = encodeURIComponent((options.services.twitter.uri ? options.services.twitter.uri : uri)+options.services.twitter.referrer_track);
+                var twitter_count_url = encodeURIComponent((options.services.twitter.uri ? options.services.twitter.uri : uri));
                 var twitter_code = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url='+twitter_enc_uri+'&amp;counturl='+twitter_count_url+'&amp;text='+text+'&amp;count=horizontal"></iframe>';
                 var twitter_dummy_btn = '<img src="'+options.services.twitter.dummy_img+'" alt="&quot;Tweet this&quot;-Dummy" class="tweet_this_dummy" />';
                 
@@ -184,7 +184,7 @@
             // Google+
             if(options.services.gplus.status == 'on'){
                 // fuer G+ wird die URL nicht encoded, da das zu einem Fehler fuehrt
-                var gplus_uri = uri+options.services.gplus.referrer_track;
+                var gplus_uri = (options.services.gplus.uri ? options.services.gplus.uri : uri)+options.services.gplus.referrer_track;
                 var gplus_code = '<div class="g-plusone" data-size="medium" data-href="'+gplus_uri+'"></div><script type="text/javascript">window.___gcfg = {lang: "'+options.services.gplus.language+'"}; (function(){ var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>';
                 var gplus_dummy_btn = '<img src="'+options.services.gplus.dummy_img+'" alt="&quot;Google+1&quot;-Dummy" class="gplus_one_dummy" />';
 

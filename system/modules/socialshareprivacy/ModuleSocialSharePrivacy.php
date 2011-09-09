@@ -61,7 +61,10 @@ class ModuleSocialSharePrivacy extends Module
 		{
 			$arrSettings['txt_help'] = $this->socialshareprivacy_txt_help;
 		}
-		$arrSettings['settings_perma'] = $this->socialshareprivacy_settings_perma ? 'on' : 'off';
+		if ($this->socialshareprivacy_settings_perma)
+		{
+			$arrSettings['settings_perma'] = $this->socialshareprivacy_settings_perma;
+		}
 		if ($this->socialshareprivacy_cookie_path)
 		{
 			$arrSettings['cookie_path'] = $this->socialshareprivacy_cookie_path;
@@ -122,6 +125,10 @@ class ModuleSocialSharePrivacy extends Module
 		{
 			$arrSettings['services']['facebook']['language'] = $this->socialshareprivacy_facebook_language;
 		}
+		if ($this->socialshareprivacy_facebook_uri)
+		{
+			$arrSettings['services']['facebook']['uri'] = urldecode($this->socialshareprivacy_facebook_uri);
+		}
 		
 		// twitter options
 		$arrSettings['services']['twitter']['status'] = $this->socialshareprivacy_twitter_status ? 'on' : 'off';
@@ -158,6 +165,10 @@ class ModuleSocialSharePrivacy extends Module
 		{
 			$arrSettings['services']['twitter']['tweet_text'] = $this->socialshareprivacy_twitter_tweet_text;
 		}
+		if ($this->socialshareprivacy_twitter_uri)
+		{
+			$arrSettings['services']['twitter']['uri'] = urldecode($this->socialshareprivacy_twitter_uri);
+		}
 		
 		// google+ options
 		$arrSettings['services']['gplus']['status'] = $this->socialshareprivacy_gplus_status ? 'on' : 'off';
@@ -193,6 +204,10 @@ class ModuleSocialSharePrivacy extends Module
 		if ($this->socialshareprivacy_gplus_language)
 		{
 			$arrSettings['services']['gplus']['language'] = $this->socialshareprivacy_gplus_language;
+		}
+		if ($this->socialshareprivacy_gplus_uri)
+		{
+			$arrSettings['services']['gplus']['uri'] = urldecode($this->socialshareprivacy_gplus_uri);
 		}
 				
 		$objTemplate = new FrontendTemplate($this->socialshareprivacy_template ? $this->socialshareprivacy_template : 'socialshareprivacy_default');
