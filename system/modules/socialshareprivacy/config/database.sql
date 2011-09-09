@@ -15,7 +15,7 @@ CREATE TABLE `tl_module` (
   `socialshareprivacy_nojquery` char(1) NOT NULL default '',
   `socialshareprivacy_info_link` varchar(255) NOT NULL default '',
   `socialshareprivacy_txt_help` varchar(255) NOT NULL default '',
-  `socialshareprivacy_settings_perma` char(1) NOT NULL default '',
+  `socialshareprivacy_settings_perma` varchar(255) NOT NULL default '',
   `socialshareprivacy_cookie_path` varchar(255) NOT NULL default '',
   `socialshareprivacy_cookie_domain` varchar(255) NOT NULL default '',
   `socialshareprivacy_cookie_expires` varchar(255) NOT NULL default '',

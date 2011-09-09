@@ -61,8 +61,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_txt_help'] = array
 $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_settings_perma'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_settings_perma'],
-	'default'                 => 1,
-	'inputType'               => 'checkbox',
+	'inputType'               => 'text',
 	'eval'                    => array('tl_class'=>'m12')
 );
 
