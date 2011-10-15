@@ -9,7 +9,7 @@ $GLOBALS['TL_JAVASCRIPT']['socialshareprivacy'] = 'system/modules/socialsharepri
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 		if($('#socialshareprivacy').length > 0){
-			$('#socialshareprivacy').socialSharePrivacy(<?php echo json_encode($this->settings); ?>); 
+			$('#socialshareprivacy').socialSharePrivacy(<?php echo ModuleSocialSharePrivacy::encodeSettings($this->settings); ?>); 
 		}
 	});
 </script>

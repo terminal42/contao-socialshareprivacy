@@ -224,6 +224,18 @@ class ModuleSocialSharePrivacy extends Module
 		
 		$this->Template->socialshareprivacy = $objTemplate->parse();
 	}
+	
+	public static function encodeSettings($arrSettings)
+	{
+		$strJson = json_encode($arrSettings);
+		$strJson = preg_replace_callback('#"script:(.*)"#U', array('ModuleSocialSharePrivacy', 'encodeSettingsCallback'), $strJson);
+		return $strJson;
+	}
+	
+	public static function encodeSettingsCallback($m)
+	{
+		return html_entity_decode($m[1]);
+	}
 }
 
 ?>
