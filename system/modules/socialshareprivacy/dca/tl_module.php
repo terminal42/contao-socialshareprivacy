@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'socialsharepriv
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'socialshareprivacy_gplus_status';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['socialshareprivacy'] = '{title_legend},name,headline,type;'.
-		'{socialshareprivacy_legend},socialshareprivacy_nojquery,socialshareprivacy_info_link,socialshareprivacy_txt_help,socialshareprivacy_settings_perma,socialshareprivacy_cookie_path,socialshareprivacy_cookie_domain,socialshareprivacy_cookie_expires,socialshareprivacy_css_path;'.
+		'{socialshareprivacy_legend},socialshareprivacy_nojquery,socialshareprivacy_info_link,socialshareprivacy_txt_help,socialshareprivacy_settings_perma,socialshareprivacy_cookie_path,socialshareprivacy_cookie_domain,socialshareprivacy_cookie_expires,socialshareprivacy_css_path,socialshareprivacy_uri;'.
 		'{socialshareprivacy_facebook_legend},socialshareprivacy_facebook_status;'.
 		'{socialshareprivacy_twitter_legend},socialshareprivacy_twitter_status;'.
 		'{socialshareprivacy_gplus_legend},socialshareprivacy_gplus_status;'.
@@ -30,9 +30,9 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['socialshareprivacy'] = '{title_lege
 		'{protected_legend:hide},protected;'.
 		'{expert_legend:hide},guests,cssID,space';
 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_facebook_status'] = 'socialshareprivacy_facebook_app_id,socialshareprivacy_facebook_dummy_img,socialshareprivacy_facebook_txt_info,socialshareprivacy_facebook_txt_fb_off,socialshareprivacy_facebook_txt_fb_on,socialshareprivacy_facebook_perma_option,socialshareprivacy_facebook_display_name,socialshareprivacy_facebook_referrer_track,socialshareprivacy_facebook_language,socialshareprivacy_facebook_uri';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_twitter_status']  = 'socialshareprivacy_twitter_dummy_img,socialshareprivacy_twitter_txt_info,socialshareprivacy_twitter_txt_twitter_off,socialshareprivacy_twitter_txt_twitter_on,socialshareprivacy_twitter_perma_option,socialshareprivacy_twitter_display_name,socialshareprivacy_twitter_referrer_track,socialshareprivacy_twitter_tweet_text,socialshareprivacy_twitter_uri';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_gplus_status']    = 'socialshareprivacy_gplus_dummy_img,socialshareprivacy_gplus_txt_info,socialshareprivacy_gplus_txt_gplus_off,socialshareprivacy_gplus_txt_gplus_on,socialshareprivacy_gplus_perma_option,socialshareprivacy_gplus_display_name,socialshareprivacy_gplus_referrer_track,socialshareprivacy_gplus_language,socialshareprivacy_gplus_uri';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_facebook_status'] = 'socialshareprivacy_facebook_dummy_img,socialshareprivacy_facebook_txt_info,socialshareprivacy_facebook_txt_fb_off,socialshareprivacy_facebook_txt_fb_on,socialshareprivacy_facebook_perma_option,socialshareprivacy_facebook_display_name,socialshareprivacy_facebook_referrer_track,socialshareprivacy_facebook_language,socialshareprivacy_facebook_action';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_twitter_status']  = 'socialshareprivacy_twitter_dummy_img,socialshareprivacy_twitter_txt_info,socialshareprivacy_twitter_txt_twitter_off,socialshareprivacy_twitter_txt_twitter_on,socialshareprivacy_twitter_perma_option,socialshareprivacy_twitter_display_name,socialshareprivacy_twitter_referrer_track,socialshareprivacy_twitter_language,socialshareprivacy_twitter_tweet_text';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['socialshareprivacy_gplus_status']    = 'socialshareprivacy_gplus_dummy_img,socialshareprivacy_gplus_txt_info,socialshareprivacy_gplus_txt_gplus_off,socialshareprivacy_gplus_txt_gplus_on,socialshareprivacy_gplus_perma_option,socialshareprivacy_gplus_display_name,socialshareprivacy_gplus_referrer_track,socialshareprivacy_gplus_language';
 
 /**
  * global options
@@ -93,6 +93,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_css_path'] = array
 	'eval'                    => array('files'=>true, 'filesOnly'=>true, 'extensions'=>'css', 'fieldType'=>'radio', 'tl_class'=>'clr')
 );
 
+$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_uri'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_uri'],
+	'inputType'               => 'text',
+	'eval'                    => array('tl_class'=>'long')
+);
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_template'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_template'],
@@ -108,13 +115,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_status'] 
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_status'],
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'m12', 'submitOnChange'=>true)
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_app_id'] = array
-(
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_app_id'],
-	'inputType'               => 'text',
-	'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50')
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_dummy_img'] = array
@@ -174,11 +174,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_language'
 	'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_uri'] = array
+$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_facebook_action'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_uri'],
-	'inputType'               => 'text',
-	'eval'                    => array('rgxp'=>'url', 'tl_class'=>'w50')
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_action'],
+	'default'                 => 'recommend',
+	'inputType'               => 'select',
+	'reference'               => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_facebook_actions'],
+	'options'                 => array('recommend', 'like'),
+	'eval'                    => array('tl_class'=>'w50')
 );
 
 /**
@@ -241,18 +244,20 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_twitter_referrer_t
 	'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50')
 );
 
+$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_twitter_language'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_language'],
+	'default'                 => $GLOBALS['TL_LANGUAGE'],
+	'inputType'               => 'select',
+	'options'                 => $this->getLanguages(),
+	'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50')
+);
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_twitter_tweet_text'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_tweet_text'],
 	'inputType'               => 'text',
-	'eval'                    => array('maxlength'=>120, 'tl_class'=>'w50')
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_twitter_uri'] = array
-(
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_twitter_uri'],
-	'inputType'               => 'text',
-	'eval'                    => array('rgxp'=>'url', 'tl_class'=>'w50')
+	'eval'                    => array('maxlength'=>120, 'tl_class'=>'clr long')
 );
 
 /**
@@ -322,13 +327,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_gplus_language'] =
 	'inputType'               => 'select',
 	'options'                 => $this->getLanguages(),
 	'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50')
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['socialshareprivacy_gplus_uri'] = array
-(
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['socialshareprivacy_gplus_uri'],
-	'inputType'               => 'text',
-	'eval'                    => array('rgxp'=>'url', 'tl_class'=>'w50')
 );
 
 /**

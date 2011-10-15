@@ -85,13 +85,13 @@ class ModuleSocialSharePrivacy extends Module
 		{
 			$arrSettings['css_path'] = 'system/modules/socialshareprivacy/html/socialshareprivacy.css';
 		}
+		if ($this->socialshareprivacy_uri)
+		{
+			$arrSettings['uri'] = urldecode($this->socialshareprivacy_uri);
+		}
 		
 		// facebook options
 		$arrSettings['services']['facebook']['status'] = $this->socialshareprivacy_facebook_status ? 'on' : 'off';
-		if ($this->socialshareprivacy_facebook_app_id)
-		{
-			$arrSettings['services']['facebook']['app_id'] = $this->socialshareprivacy_facebook_app_id;
-		}
 		if ($this->socialshareprivacy_facebook_dummy_img)
 		{
 			$arrSettings['services']['facebook']['dummy_img'] = $this->socialshareprivacy_facebook_dummy_img;
@@ -124,6 +124,10 @@ class ModuleSocialSharePrivacy extends Module
 		if ($this->socialshareprivacy_facebook_language)
 		{
 			$arrSettings['services']['facebook']['language'] = $this->socialshareprivacy_facebook_language;
+		}
+		if ($this->socialshareprivacy_facebook_action)
+		{
+			$arrSettings['services']['facebook']['action'] = urldecode($this->socialshareprivacy_facebook_action);
 		}
 		if ($this->socialshareprivacy_facebook_uri)
 		{
@@ -164,6 +168,10 @@ class ModuleSocialSharePrivacy extends Module
 		if ($this->socialshareprivacy_twitter_tweet_text)
 		{
 			$arrSettings['services']['twitter']['tweet_text'] = $this->socialshareprivacy_twitter_tweet_text;
+		}
+		if ($this->socialshareprivacy_twitter_language)
+		{
+			$arrSettings['services']['twitter']['language'] = $this->socialshareprivacy_twitter_language;
 		}
 		if ($this->socialshareprivacy_twitter_uri)
 		{
