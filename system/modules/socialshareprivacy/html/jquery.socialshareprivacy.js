@@ -143,18 +143,24 @@
 
         // insert stylesheet into document and prepend target element
         if (options.css_path.length > 0) {
-            $('head').append('<link rel="stylesheet" type="text/css" href="' + options.css_path + '" />');
-        }
-        $(this).prepend('<ul class="social_share_privacy_area"></ul>');
-        var context = $('.social_share_privacy_area', this);
-
-        // canonical uri that will be shared
-        var uri = options.uri;
-        if (typeof uri === 'function') {
-            uri = uri();
+            // IE fix (noetig fuer IE < 9 - wird hier aber fuer alle IE gemacht)
+            if (document.createStyleSheet) {
+                document.createStyleSheet(options.css_path);
+            } else {
+                $('head').append('<link rel="stylesheet" type="text/css" href="' + options.css_path + '" />');
+            }
         }
 
         return this.each(function () {
+
+            $(this).prepend('<ul class="social_share_privacy_area"></ul>');
+            var context = $('.social_share_privacy_area', this);
+
+            // canonical uri that will be shared
+            var uri = options.uri;
+            if (typeof uri === 'function') {
+                uri = uri(context);
+            }
 
             //
             // Facebook
