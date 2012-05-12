@@ -5,11 +5,11 @@ if (!$this->nojquery)
 }
 $GLOBALS['TL_JAVASCRIPT']['socialshareprivacy'] = 'system/modules/socialshareprivacy/html/jquery.socialshareprivacy.min.js';
 ?>
-<div id="socialshareprivacy"></div>
+<div id="socialshareprivacy<?php echo $this->id; ?>"></div>
 <script type="text/javascript">
-	jQuery(document).ready(function($){
-		if($('#socialshareprivacy').length > 0){
-			$('#socialshareprivacy').socialSharePrivacy(<?php echo ModuleSocialSharePrivacy::encodeSettings($this->settings); ?>); 
+	jQuery(function($){
+		if($('#socialshareprivacy<?php echo $this->id; ?>').length > 0){
+			$('#socialshareprivacy<?php echo $this->id; ?>').socialSharePrivacy(<?php echo ModuleSocialSharePrivacy::encodeSettings($this->settings); ?>);
 		}
 	});
 </script>
