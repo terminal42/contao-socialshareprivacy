@@ -1,0 +1,15 @@
+<?php
+if (!$this->nojquery)
+{
+	$GLOBALS['TL_JAVASCRIPT']['jquery'] = 'system/modules/socialshareprivacy/assets/jquery.noconflict.min.js';
+}
+$GLOBALS['TL_JAVASCRIPT']['socialshareprivacy'] = 'system/modules/socialshareprivacy/assets/jquery.socialshareprivacy.min.js';
+?>
+<div id="socialshareprivacy<?php echo $this->id; ?>"></div>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            $('#socialshareprivacy<?php echo $this->id; ?>').socialSharePrivacy(<?php echo \ModuleSocialSharePrivacy::encodeSettings($this->settings); ?>);
+        });
+    })(jQuery);
+</script>

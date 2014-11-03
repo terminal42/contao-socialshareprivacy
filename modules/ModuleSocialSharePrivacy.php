@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * socialshareprivacy
@@ -20,7 +20,7 @@
 /**
  * Class ModuleSocialSharePrivacy
  */
-class ModuleSocialSharePrivacy extends Module
+class ModuleSocialSharePrivacy extends \Module
 {
 	/**
 	 * Template
@@ -36,7 +36,7 @@ class ModuleSocialSharePrivacy extends Module
 	{
 		if (TL_MODE == 'BE')
 		{
-			$objTemplate = new BackendTemplate('be_wildcard');
+			$objTemplate = new \BackendTemplate('be_wildcard');
 			$objTemplate->wildcard = '### SocialSharePrivacy ###';
 			return $objTemplate->parse();
 		}
@@ -50,12 +50,11 @@ class ModuleSocialSharePrivacy extends Module
 	 */
 	public function compile()
 	{
-		$objSocialSharePrivacy = new SocialSharePrivacy();
+		$objSocialSharePrivacy = new \SocialSharePrivacy();
 
 		$objSocialSharePrivacy->setId($this->id);
 
-		$arrSettings = array();
-		
+
 		// global options
 		if ($this->socialshareprivacy_info_link)
 		{
@@ -194,7 +193,7 @@ class ModuleSocialSharePrivacy extends Module
 			$objSocialSharePrivacy->setGplusLanguage($this->socialshareprivacy_gplus_language);
 		}
 
-		$objSocialSharePrivacy->setIncludeJQuery(!$this->nojquery);
+		$objSocialSharePrivacy->setIncludeJQuery(!$this->socialshareprivacy_nojquery);
 
 		$this->Template->socialshareprivacy = $objSocialSharePrivacy->generate();
 	}

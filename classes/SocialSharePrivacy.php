@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * socialshareprivacy
@@ -1006,7 +1006,7 @@ class SocialSharePrivacy
 		}
 		else
 		{
-			$arrSettings['css_path'] = 'system/modules/socialshareprivacy/html/socialshareprivacy.css';
+			$arrSettings['css_path'] = 'system/modules/socialshareprivacy/assets/socialshareprivacy.css';
 		}
 		if ($this->uri)
 		{
@@ -1021,7 +1021,7 @@ class SocialSharePrivacy
 		}
 		else
 		{
-			$arrSettings['services']['facebook']['dummy_img'] = 'system/modules/socialshareprivacy/html/images/dummy_facebook.png';
+			$arrSettings['services']['facebook']['dummy_img'] = 'system/modules/socialshareprivacy/assets/images/dummy_facebook.png';
 		}
 		if ($this->facebookTextInfo)
 		{
@@ -1061,7 +1061,7 @@ class SocialSharePrivacy
 		}
 		else
 		{
-			$arrSettings['services']['twitter']['dummy_img'] = 'system/modules/socialshareprivacy/html/images/dummy_twitter.png';
+			$arrSettings['services']['twitter']['dummy_img'] = 'system/modules/socialshareprivacy/assets/images/dummy_twitter.png';
 		}
 		if ($this->twitterTextInfo)
 		{
@@ -1101,7 +1101,7 @@ class SocialSharePrivacy
 		}
 		else
 		{
-			$arrSettings['services']['gplus']['dummy_img'] = 'system/modules/socialshareprivacy/html/images/dummy_gplus.png';
+			$arrSettings['services']['gplus']['dummy_img'] = 'system/modules/socialshareprivacy/assets/images/dummy_gplus.png';
 		}
 		if ($this->gplusTextInfo)
 		{
@@ -1129,7 +1129,9 @@ class SocialSharePrivacy
 			$arrSettings['services']['gplus']['language'] = $this->gplusLanguage;
 		}
 
-		$objTemplate = new FrontendTemplate('socialshareprivacy_default');
+        $arrSettings['lang_path'] = 'system/modules/socialshareprivacy/assets/lang/';
+
+		$objTemplate = new \FrontendTemplate('socialshareprivacy_default');
 		$objTemplate->id       = $strId;
 		$objTemplate->nojquery = !$this->includeJQuery;
 		$objTemplate->settings = $arrSettings;
