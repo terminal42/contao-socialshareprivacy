@@ -375,6 +375,6 @@ class tl_module_socialshareprivacy extends Backend
 {
 	public function getTemplates()
 	{
-		return $this->getTemplateGroup('socialshareprivacy_', $dc->activeRecord->pid);
+        return $this->getTemplateGroup('socialshareprivacy_');
 	}
 }
